@@ -33,7 +33,7 @@ export function KanbanCard({ application, onEdit, onDelete }: KanbanCardProps) {
   return (
     <div
       ref={setNodeRef}
-      style={style}
+         style={{ ...style, touchAction: 'none' }}
       {...attributes}
       {...listeners}
       className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow cursor-move"
@@ -57,6 +57,7 @@ export function KanbanCard({ application, onEdit, onDelete }: KanbanCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
+                style={{ touchAction: 'auto' }}
               className="p-1 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
             >
               <ExternalLink size={16} />
@@ -67,6 +68,7 @@ export function KanbanCard({ application, onEdit, onDelete }: KanbanCardProps) {
               e.stopPropagation();
               onEdit(application);
             }}
+             style={{ touchAction: 'auto' }}
             className="p-1 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
           >
             <Edit size={16} />
@@ -76,6 +78,7 @@ export function KanbanCard({ application, onEdit, onDelete }: KanbanCardProps) {
               e.stopPropagation();
               onDelete(application.id);
             }}
+               style={{ touchAction: 'auto' }}
             className="p-1 text-gray-400 hover:text-red-600 dark:hover:text-red-400"
           >
             <Trash2 size={16} />

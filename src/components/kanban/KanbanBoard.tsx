@@ -130,15 +130,15 @@ export function KanbanBoard() {
 
   return (
     <div className="h-full flex flex-col">
-      {/* Header */}
-      <div className="mb-6 space-y-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+     
+    <div className="mb-4 md:mb-6 space-y-3 md:space-y-4">
+        <div className="flex items-center justify-between gap-2">
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">
             Kanban Board
           </h1>
-          <Button onClick={() => setIsAddModalOpen(true)}>
-            <Plus size={20} className="mr-2" />
-            Add Application
+          <Button onClick={() => setIsAddModalOpen(true)} className="text-sm md:text-base">
+            <Plus size={18} className="md:mr-2" />
+            <span className="hidden sm:inline">Add Application</span>
           </Button>
         </div>
 
@@ -165,8 +165,8 @@ export function KanbanBoard() {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex-1 overflow-x-auto">
-          <div className="flex gap-4 min-w-max pb-4">
+       <div className="flex-1 overflow-y-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 pb-4">
             {STATUS_COLUMNS.map(column => (
               <KanbanColumn
                 key={column.id}
